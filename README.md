@@ -8,9 +8,6 @@ Ce projet a pour objectif de détecter des intrusions dans un trafic réseau chi
 ##  Pipeline du projet
 
 
-::contentReference[oaicite:0]{index=0}
-
-
 ###  Étapes :
 
 1.  Capture du trafic réseau (fichiers PCAP)  
@@ -25,7 +22,7 @@ Ce projet a pour objectif de détecter des intrusions dans un trafic réseau chi
 
 ---
 
-## 🧠 Méthodes utilisées
+##  Méthodes utilisées
 
 ###  Sélection de caractéristiques
 - Méthodes filtres : Chi2, Pearson, MIC  
