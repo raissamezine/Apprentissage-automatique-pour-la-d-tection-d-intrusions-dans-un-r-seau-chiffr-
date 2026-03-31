@@ -188,7 +188,7 @@ if choix=="Méthodes de selection de caractéristiques":
    
          if méthode in wrappers:
               fullname="wrapper_trees"+str(nb_car)+".csv"
-              d=extractfeatures("Wrappers",méthode,fullname)
+              d=extractfeatures("wrappers",méthode,fullname)
               d.to_csv("resultt.csv",index=False)
               x_train,x_test,y_train,y_test,y=split_data(d)
               model=returnmodel(classifier)
