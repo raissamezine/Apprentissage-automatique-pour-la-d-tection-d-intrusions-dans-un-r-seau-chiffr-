@@ -1,0 +1,2 @@
+duration,resp_bytes,orig_pkts,orig_ip_bytes,resp_pkts,resp_ip_bytes,curve_secp256r1,curve_x25519,conn_state_RSTRH,conn_state_SHR,version_TLSv12,version_TLSv13,ke_ECDHE,ke_nan,aut_RSA,aut_nan,bulk_de_AES_128_GCM,bulk_de_AES_256_GCM,mac_SHA256,mac_SHA384,Classe
+151.456772625,17998.657354894523,0.0,0.0,29.5370580421908,18396.0,0.0,0,0,1,0,0,0,0,0,0,1,0,1,0,1
