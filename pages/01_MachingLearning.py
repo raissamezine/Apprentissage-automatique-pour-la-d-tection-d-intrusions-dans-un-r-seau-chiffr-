@@ -35,10 +35,10 @@ df=load_data()
 wrappers=["RF","DT","LGBM"]
 filters=["MIC","CHI2","pearson"]
 def afficherResult(prediction):
-     precision =precision_score(y_test, prediction, average='macro').round(2)
-     accuracy=accuracy_score(y_test,prediction).round(3)
-     recall=recall_score(y_test,prediction).round(3)
-     F1_scr=f1_score(y_test,prediction).round(3)
+     precision = round(precision_score(y_test, prediction, average='macro'), 2)
+     accuracy = round(accuracy_score(y_test, prediction), 3)
+     recall = round(recall_score(y_test, prediction), 3)
+     F1_scr = round(f1_score(y_test, prediction), 3)
      # Afficher le résultat
      st.write("Précision :",precision)
      st.write("Accuracy :",accuracy)
