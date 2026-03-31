@@ -9,7 +9,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
 import seaborn as sns
 import matplotlib.pyplot as plt
-st.set_option('deprecation.showPyplotGlobalUse',False)
+#st.set_option('deprecation.showPyplotGlobalUse',False)
 
 def main():
     global x_train,x_test,y_train,y_test,y
