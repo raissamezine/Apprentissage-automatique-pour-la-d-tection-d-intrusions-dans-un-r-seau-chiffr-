@@ -19,9 +19,13 @@ from sklearn import metrics
 import seaborn as sns
 from lightgbm import LGBMClassifier
 import matplotlib.pyplot as plt
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 @st.cache_data(persist=True)
 def load_data():
-        df=pd.read_csv("df_shuffle_before_smote_een.csv")
+        chemin = os.path.join(BASE_DIR, "df_shuffle_before_smote_een.csv")
+        df=pd.read_csv(chemin)
         df=df.dropna()
         df=df.drop_duplicates()
         df=df.iloc[:-1,:]
@@ -87,8 +91,8 @@ def plot_perf(graphes):
             st.pyplot()
 def extractfeatures(type,méthode,fullname):
      df_temp=df
-     chemin="FVs"+"/"+type+"/"+fullname
-     data=pd.read_csv(chemin)
+     chemin = os.path.join(BASE_DIR, "FVs", type, fullname)
+     data = pd.read_csv(chemin)
      
      if méthode=="RF" or méthode=="MIC": num=1
      if méthode=="DT" or méthode=="CHI2": num=2
@@ -111,8 +115,8 @@ def extractfeatures(type,méthode,fullname):
      return df_temp
 def combinationoffeatures(type,méthode,fullname):
      df_temp=df
-     chemin="FVs"+"/"+type+"/"+fullname
-     data=pd.read_csv(chemin)
+     chemin = os.path.join(BASE_DIR, "FVs", type, fullname)
+     data = pd.read_csv(chemin) 
      relevants=[]
      for row in data.itertuples(index=False):
            if row.count(True)>1:
@@ -153,7 +157,8 @@ def returnmodel(classifier):
 def meilleure(chemin,num_methode):
           df_temp=df
           
-          data=pd.read_csv(chemin)
+          chemin = os.path.join(BASE_DIR, chemin)
+          data = pd.read_csv(chemin)
           feat=[]
           for i in range (len(data)):
       
@@ -259,13 +264,13 @@ if choix=="Meilleur vecteur de caractéristiques":
 
     if st.sidebar.button("Execution",key="classify"):
        if classifier=="Random Forest":
-           d,features= meilleure("FVs/filters/filters20.csv",1)
+           d,features= meilleure(os.path.join("FVs","filters","filters20.csv"),1)
        if classifier=="Decision tree":
-           d,features= meilleure("FVs/filters/filters20.csv",1)
+          d,features= meilleure(os.path.join("FVs","filters","filters20.csv"),1)
        if classifier=="KNN":
-           d,features= meilleure("FVs/filters/filters20.csv",1)
+           d,features= meilleure(os.path.join("FVs","filters","filters20.csv"),1)
        if classifier=="XGboost":
-           d,features= meilleure("FVs/filters/filters20.csv",1)
+           d,features= meilleure(os.path.join("FVs","filters","filters20.csv"),1)
 
        if classifier=="LGBM":
            d,features= meilleure("FVs/filters/filters30.csv",1)
